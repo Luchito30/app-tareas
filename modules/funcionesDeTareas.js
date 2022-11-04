@@ -36,10 +36,12 @@ const moduloTareas = {
             arrayTareas.forEach((tareas,indice) => {
             console.log(`\n${indice + 1}- Titulo: ${tareas.titulo}\n   Estado: ${tareas.estado}\n`);
         });
+
+       console.log(this.horaTarea() + "\n\n");
     },
     mostarTarea : function(id){
         if(isNaN(id)){
-            return "\n\nAtención!: ¡Se debe ingresar un ID valido!\n\n";
+            return "\n\nAtención!: ¡Se debe ingresar un ID valido!\n\n" + this.horaTarea() + "\n\n";
         };
 
        id = Math.floor(id);
@@ -48,10 +50,12 @@ const moduloTareas = {
        const tarea = tareas.find(tarea =>{
         return tarea.id === id
        })
-        return tarea ? `\n\nInformacion de la Tarea:\n\n- ID: ${tarea.id}\n- Titulo: ${tarea.titulo}\n- Estado: ${tarea.estado}\n\n` : "\n\nAtención!: ¡No hay tareas para mostar con el ID: " + id + "!\n\n"
+       console.log();
+        return tarea ? `\n\nInformacion de la Tarea:\n\n- ID: ${tarea.id}\n- Titulo: ${tarea.titulo}\n- Estado: ${tarea.estado}\n\n${this.horaTarea()}\n\n` : "\n\nAtención!: ¡No hay tareas para mostar con el ID: " + id + `!\n\n${this.horaTarea()}\n\n`
+        
        },
     agregarTarea : function(titulo){
-        let validacion = !titulo ? "\nAtención!: ¡Debes ingresar la Tarea a crear!\n" : false
+        let validacion = !titulo ? `\nAtención!: ¡Debes ingresar la Tarea a crear!\n\n${this.horaTarea()}\n\n` : false
         
         if(validacion){
         return validacion;
@@ -69,12 +73,12 @@ const moduloTareas = {
         tareas.push(nuevaTarea)
 
         this.guardarJSON(tareas)
-        console.log("\n¡Tarea creada con exito!\n\n Información de la tarea creada:\n\n ");
-        return `- ID: ${nuevaTarea.id}\n- Tarea: ${nuevaTarea.titulo}\n- Estado: pendiente\n`;
+        console.log("\n¡Tarea creada con exito!\n\n Información de la tarea creada:\n");
+        return `- ID: ${nuevaTarea.id}\n- Tarea: ${nuevaTarea.titulo}\n- Estado: pendiente\n\n${this.horaTarea()}\n\n`;
     },
     editarTarea : function(id,titulo){
         
-        let validacion = !id ? "\n\nAtención!: ¡Debes ingresar un ID para editar la tarea!\n\n" : false
+        let validacion = !id ? `\n\nAtención!: ¡Debes ingresar un ID para editar la tarea!\n\n${this.horaTarea()}\n\n` : false
         
             if(validacion){
                 console.log(validacion);
@@ -97,12 +101,14 @@ const moduloTareas = {
             return tarea;
         })
         this.guardarJSON(tareasModificadas);
-        return tareasModificadas;
+        console.log(tareasModificadas);
+        console.log(`\n\n${this.horaTarea()}\n\n`);
     },
     pendienteTarea : function(id){
-        let validacion = !id ? "\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar el estado pendiente!\n" : false
+        let validacion = !id ? `\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar al estado: pendiente!\n\n${this.horaTarea()}\n\n` : false
         
         if(validacion){
+        console.log(validacion);
         return validacion;
         }
 
@@ -122,12 +128,14 @@ const moduloTareas = {
             return tarea;
         })
         this.guardarJSON(tareasModificadas);
-        return tareasModificadas;
+        console.log(tareasModificadas);
+        console.log(`\n\n${this.horaTarea()}\n\n`);
     },
     pregresoTarea : function(id){
-        let validacion = !id ? "\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar el estado a en progreso!\n" : false
+        let validacion = !id ? `\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar al estado: en progreso!\n\n${this.horaTarea()}\n\n` : false
         
         if(validacion){
+        console.log(validacion);
         return validacion;
         }
 
@@ -147,12 +155,14 @@ const moduloTareas = {
             return tarea;
         })
         this.guardarJSON(tareasModificadas);
-        return tareasModificadas;
+        console.log(tareasModificadas);
+        console.log(`\n\n${this.horaTarea()}\n\n`);
     },
     terminadaTarea : function(id){
-    let validacion = !id ? "\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar el estado a terminada!\n" : false
+    let validacion = !id ? `\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar al estado: terminada!\n\n${this.horaTarea()}\n\n` : false
         
         if(validacion){
+        console.log(validacion);
         return validacion;
         }
 
@@ -172,14 +182,16 @@ const moduloTareas = {
             return tarea;
         })
         this.guardarJSON(tareasModificadas);
-        return tareasModificadas;
+        console.log(tareasModificadas);
+        console.log(`\n\n${this.horaTarea()}\n\n`);
     },
     portadaTarea : function(){
         const portadaJson = fs.readFileSync(path.join(__dirname,"..","data",this.archivo2),"utf-8");
         const portadaParceado = JSON.parse(portadaJson);
         console.log("\n\nInformacion de la Aplicacion:\n");
         console.log(`- Titulo: ${portadaParceado.Titulo}\n- Version: ${portadaParceado.Version}\n- Tipo: ${portadaParceado.Tipo}\n- Comandos: ${portadaParceado.Comandos}\n- Creador: ${portadaParceado.Creador}\n- Profesores: ${portadaParceado.Profesores}\n\n`);
-        
+       
+        console.log(`${this.horaTarea()}\n\n`);
         return portadaParceado;
     },
     indiceTarea : function(){
@@ -188,6 +200,7 @@ const moduloTareas = {
         console.log("\n\nPara poder usar la App de Tareas se tiene los siguientes Comandos:\n");
         console.log(`- Indice: ${indiceParceado.Indice}\n- Portada: ${indiceParceado.Portada}\n- Listar: ${indiceParceado.Listar}\n- Ayuda: ${indiceParceado.Ayuda}\n- Tarea: ${indiceParceado.Tarea}\n- Crear: ${indiceParceado.Crear}\n- Editar: ${indiceParceado.Editar}\n- Pendiente: ${indiceParceado.Pendiente}\n- Enprogreso: ${indiceParceado.Enprogreso}\n- Terminada: ${indiceParceado.Terminada}\n- Eliminar: ${indiceParceado.Eliminar}\n- Buscar: ${indiceParceado.Buscar}\n- Filtrar: ${indiceParceado.Filtrar}\n- Cantidadtareas: ${indiceParceado.Cantidadtareas}\n\n`);
     
+        console.log(`${this.horaTarea()}\n\n`);
         return indiceParceado;
     },
     ayudaTarea : function(){
@@ -195,11 +208,14 @@ const moduloTareas = {
         const ayudaParceado = JSON.parse(ayudaJson);
         console.log(`\n\nPara realizar comandos, seguir los siguientes formatos\n-Parametros(a,b,c)\n`);
         console.log(`- Listar: ${ayudaParceado.listar}\n- Tarea: ${ayudaParceado.tarea}\n- Crear: ${ayudaParceado.crear}\n- Editar: ${ayudaParceado.editar}\n- Pendiente: ${ayudaParceado.pendiente}\n- Enprogreso: ${ayudaParceado.enprogreso}\n- Terminada: ${ayudaParceado.terminada}\n- Filtrar: ${ayudaParceado.filtrar}\n- Cantidadtareas: ${ayudaParceado.cantidadtareas}\n- Portada: ${ayudaParceado.portada}\n- Indice: ${ayudaParceado.indice}\n- Eliminar: ${ayudaParceado.eliminar}\n- Buscar: ${ayudaParceado.buscar}\n\n`)
+        
+        console.log(`${this.horaTarea()}\n\n`);
         return ayudaParceado
     },
     eliminarTarea : function(id){
         if(!id){
-            return "Atención!: ¡Se necesita el ID de la tarea a eliminar!"
+            console.log(`\n\nAtención!: ¡Se necesita el ID de la tarea a eliminar!\n\n${this.horaTarea()}\n\n`);
+            return `\n\nAtención!: ¡Se necesita el ID de la tarea a eliminar!\n\n${this.horaTarea()}\n\n`
         }
 
         let tareas = this.leerJSON();
@@ -208,35 +224,35 @@ const moduloTareas = {
         this.guardarJSON(tareasNoeliminadas);
         console.log("\n\nSe elimino la tarea\n\n- Las tareas quedan son las siguientes:\n");
         console.log(tareasNoeliminadas);
+        console.log(`\n\n${this.horaTarea()}\n\n`);
         return tareasNoeliminadas;
 
         },
         buscarTarea : function(key){
             if(!key){
-                return "\nAtención!: Indique que quiere buscar\n\n"
+                return `\nAtención!: Indique que quiere buscar\n\n${this.horaTarea()}\n\n`
             }
             
             const tareas = this.leerJSON();
-            const fecha = this.horaTarea();
             const tareasFiltrados = tareas.filter(tarea => {
                 return tarea.titulo.toLowerCase().includes(key.toLowerCase())
             });
-            console.log("\nLa cantidad de resultados para la busqueda son: " + tareasFiltrados.length + "\n" + fecha)
+            console.log("\nLa cantidad de resultados para la busqueda son: " + tareasFiltrados.length + "\n" + this.horaTarea() + "\n" );
             return tareasFiltrados.length ? tareasFiltrados :"\nAtención!: No resultados para " + key +"\n\n";
     
         },
         filtrarPorEstado:  function(estado){
-            let validacion = !estado ? "\nAtención!: ¡Debes ingresar un estado para consultar las tareas!\n\nLos estados a consultar son:\n- pendiente\n- en progreso\n- terminada\n\n" : false
+            let validacion = !estado ? `\nAtención!: ¡Debes ingresar un estado para consultar las tareas!\n\nLos estados a consultar son:\n- pendiente\n- en progreso\n- terminada\n\n${this.horaTarea()}\n\n` : false
         
             if(validacion){
+            console.log(validacion);
             return validacion;
             }
         const tareas = this.leerJSON();
-        const fecha = this.horaTarea();
         
         let estadosFiltrados = tareas.filter(tarea => estado.toLowerCase() === tarea.estado);
-        console.log("\nLa cantidad de tareas para el estado " + estado + " son: " + estadosFiltrados.length + "\n" + fecha + "\n")
-        return  estadosFiltrados.length ? estadosFiltrados :"\n\nAtención!: No hay resultados para mostrar del estado " + estado + "\n\n";
+        console.log("\nLa cantidad de tareas para el estado " + estado + " son: " + estadosFiltrados.length + "\n" + this.horaTarea() + "\n")
+        console.log(estadosFiltrados.length ? estadosFiltrados :"\n\nAtención!: No hay resultados para mostrar del estado " + estado + "\n\n");
         },
         cantidadTareas : function(){
             const tareas = this.leerJSON();

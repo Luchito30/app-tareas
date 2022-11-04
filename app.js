@@ -27,23 +27,23 @@ switch (comando) {
         break;
     case "pendiente":
     id = +process.argv[3];
-    console.log(moduloTareas.pendienteTarea(id));
+    moduloTareas.pendienteTarea(id);
         break;        
     case "enprogreso":
     id = +process.argv[3];
-    console.log(moduloTareas.pregresoTarea(id));
+    moduloTareas.pregresoTarea(id);
         break;
     case "terminada":
     id = +process.argv[3];
-    console.log(moduloTareas.terminadaTarea(id));
+    moduloTareas.terminadaTarea(id);
         break;
     case "eliminar":
     id = +process.argv[3]
-    console.log(moduloTareas.eliminarTarea(id));
+    moduloTareas.eliminarTarea(id);
         break;
     case "filtrar":
     estado = process.argv[3];
-    console.log(moduloTareas.filtrarPorEstado(estado))   
+    moduloTareas.filtrarPorEstado(estado);
         break;   
     case "cantidadtareas":
     console.log(moduloTareas.cantidadTareas()); 
@@ -58,12 +58,14 @@ switch (comando) {
     moduloTareas.ayudaTarea();
         break;
     case "buscar":
-        key = process.argv[3]
-        console.log(moduloTareas.buscarTarea(key))
+        key = process.argv[3];
+        console.log(moduloTareas.buscarTarea(key));
         break;
     case undefined:
     console.log("\n\nAtención! : ¡Tienes que pasar una acción!\n\n");
+    console.log(moduloTareas.horaTarea() + "\n\n");
         break;
     default:
         console.log("\n\n¡No entiendo qué quieres hacer!\n\n");
+        console.log(moduloTareas.horaTarea() + "\n\n");
 }
