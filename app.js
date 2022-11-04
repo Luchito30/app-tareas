@@ -46,7 +46,7 @@ switch (comando) {
     console.log(moduloTareas.filtrarPorEstado(estado))   
         break;   
     case "cantidadtareas":
-    console.log("\n\nLa cantidad de tareas son: "+ moduloTareas.cantidadTareas() + "\n\n"); 
+    console.log(moduloTareas.cantidadTareas()); 
         break;
     case "portada":
     moduloTareas.portadaTarea();

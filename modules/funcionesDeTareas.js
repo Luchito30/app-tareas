@@ -25,7 +25,7 @@ const moduloTareas = {
 
             let meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
 
-       return "Se busco el: " + dia + " de " + meses[mes] + " del " + anio + " a las " + hora+":"+minutos+":"+seg
+       return "Fecha y hora: " + dia + " de " + meses[mes] + " del " + anio + " a las " + hora+":"+minutos+":"+seg
     
     },
     mostarLista: function(){
@@ -232,15 +232,17 @@ const moduloTareas = {
             return validacion;
             }
         const tareas = this.leerJSON();
+        const fecha = this.horaTarea();
         
         let estadosFiltrados = tareas.filter(tarea => estado.toLowerCase() === tarea.estado);
-        console.log("\nLa cantidad de tareas para el estado " + estado + " son: " + estadosFiltrados.length + "\n")
+        console.log("\nLa cantidad de tareas para el estado " + estado + " son: " + estadosFiltrados.length + "\n" + fecha + "\n")
         return  estadosFiltrados.length ? estadosFiltrados :"\n\nAtención!: No hay resultados para mostrar del estado " + estado + "\n\n";
         },
         cantidadTareas : function(){
             const tareas = this.leerJSON();
+            const fecha = this.horaTarea();
             let cantidadTareas = tareas.length
-            return cantidadTareas
+            return "\n\nLa cantidad de tareas son: " + cantidadTareas + "\n" + fecha + "\n\n"
         }
 }
 
