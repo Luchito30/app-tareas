@@ -1,0 +1,15 @@
+{
+  "listar": "node app listar",
+  "tarea": "node app tarea a",
+  "crear": "node app crear a",
+  "editar": "node app editar a",
+  "pendiente": "node app pendiente a",
+  "enprogreso": "node app enprogreso a",
+  "terminada": "node app terminada a", 
+  "filtrar": "node app filtrar a",
+  "eliminar": "node app eliminar a ",
+  "buscar": "node app buscar a",
+  "cantidadtareas": "node app cantidadtareas",
+  "portada": "node app portada",
+  "indice": "node app indice"
+}

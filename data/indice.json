@@ -1,0 +1,16 @@
+{
+  "Indice": "Muestra la información de los Comandos que se pueden usar",
+  "Portada": "Muestra la información de la aplicacion ",
+  "Listar": "Muestra las Tareas",
+  "Ayuda": "Ayuda para ingresar los comandos",
+  "Tarea": "Muestra la tarea por ID",
+  "Crear": "crea una Nueva tarea",
+  "Editar": "Edita el Titulo de la tarea ",
+  "Eliminar": "Elimina una tarea",
+  "Buscar": "Busca un con una palabra clave una tarea",
+  "Filtrar":"Busca las tareas por el estado",
+  "Cantidadtareas": " Muestra la cantidad de tareas que hay",
+  "Pendiente": "Cambia el estado de la tarea a Pendiente",
+  "Enprogreso": "Cambia el estado de la tarea a en progreso",
+  "Terminada": "Cambia el estado de la tarea a terminada"
+}

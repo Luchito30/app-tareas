@@ -1,0 +1,37 @@
+[
+   {
+      "id": 1,
+      "titulo": "Estudiar JavaScript",
+      "estado": "en progreso"
+   },
+   {
+      "id": 2,
+      "titulo": "Estudiar Ingles",
+      "estado": "pendiente"
+   },
+   {
+      "id": 3,
+      "titulo": "Armar app Calculadora",
+      "estado": "terminada"
+   },
+   {
+      "id": 4,
+      "titulo": "repasar conseptos de playground",
+      "estado": "terminada"
+   },
+   {
+      "id": 5,
+      "titulo": "estudiar HTML5",
+      "estado": "en progreso"
+   },
+   {
+      "id": 6,
+      "titulo": "estudiar css3",
+      "estado": "en progreso"
+   },
+   {
+      "id": 7,
+      "titulo": "estudiar python",
+      "estado": "pendiente"
+   }
+]
