@@ -2,7 +2,7 @@
     "Titulo": "Memorian",
     "Version": "v1.0",
     "Tipo": "App de Tareas",
-    "Comandos": ["listar","tarea","crear","editar","pendiente","enprogreso","terminada","portada","indice","ayuda","eliminar","buscar","filtrar","cantidadtareas"],
+    "Comandos": ["listar","tarea","crear","editar","pendiente","enprogreso","terminada","portada","indice","ayuda","eliminar","buscar","ultimabusqueda","filtrar","cantidadtareas"],
     "Creador": "Luis Dick",
     "Profesores": ["Eric Mena","Emanuel Arroyo"]
 }

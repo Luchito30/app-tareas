@@ -11,5 +11,6 @@
   "buscar": "node app buscar a",
   "cantidadtareas": "node app cantidadtareas",
   "portada": "node app portada",
-  "indice": "node app indice"
+  "indice": "node app indice",
+  "ultimabusqueda": "node app ultimabusqueda"
 }

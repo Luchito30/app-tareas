@@ -27,19 +27,19 @@ switch (comando) {
         break;
     case "pendiente":
     id = +process.argv[3];
-    moduloTareas.pendienteTarea(id);
+    console.log(moduloTareas.pendienteTarea(id));
         break;        
     case "enprogreso":
     id = +process.argv[3];
-    moduloTareas.pregresoTarea(id);
+    console.log(moduloTareas.pregresoTarea(id));
         break;
     case "terminada":
     id = +process.argv[3];
-    moduloTareas.terminadaTarea(id);
+    console.log(moduloTareas.terminadaTarea(id));
         break;
     case "eliminar":
     id = +process.argv[3]
-    moduloTareas.eliminarTarea(id);
+    console.log(moduloTareas.eliminarTarea(id));
         break;
     case "filtrar":
     estado = process.argv[3];
@@ -60,6 +60,9 @@ switch (comando) {
     case "buscar":
         key = process.argv[3];
         console.log(moduloTareas.buscarTarea(key));
+        break;
+    case "ultimabusqueda":
+        moduloTareas.ultimaBusqueda();
         break;
     case undefined:
     console.log("\n\nAtención! : ¡Tienes que pasar una Comando!\n\n");

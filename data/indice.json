@@ -8,6 +8,7 @@
   "Editar": "Edita el Titulo de la tarea ",
   "Eliminar": "Elimina una tarea",
   "Buscar": "Busca un con una palabra clave una tarea",
+  "Ultimabusqueda": "Muestra la ultima busqueda realizada",
   "Filtrar":"Busca las tareas por el estado",
   "Cantidadtareas": " Muestra la cantidad de tareas que hay",
   "Pendiente": "Cambia el estado de la tarea a Pendiente",
