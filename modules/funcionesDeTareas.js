@@ -264,9 +264,9 @@ const moduloTareas = {
         },
         cantidadTareas : function(){
             const tareas = this.leerJSON();
-            const fecha = this.horaTarea();
+            
             let cantidadTareas = tareas.length
-            return "\n\nLa cantidad de tareas son: " + cantidadTareas + "\n" + fecha + "\n\n"
+            return "\n\nLa cantidad de tareas son: " + cantidadTareas + "\n\n" + this.horaTarea() + "\n\n"
         },
         ultimaBusqueda : function(){
             const ultimaJson = fs.readFileSync(path.join(__dirname,"..","data",this.archivo5),"utf-8");
