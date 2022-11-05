@@ -65,7 +65,7 @@ switch (comando) {
         moduloTareas.ultimaBusqueda();
         break;
     case undefined:
-    console.log("\n\nAtención! : ¡Tienes que pasar una Comando!\n\n");
+    console.log("\n\nAtención! : ¡Tienes que ingresar un Comando!\n\n");
     console.log(moduloTareas.horaTarea() + "\n\n");
         break;
     default:
