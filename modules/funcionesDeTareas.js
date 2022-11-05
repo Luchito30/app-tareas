@@ -50,7 +50,7 @@ const moduloTareas = {
        const tarea = tareas.find(tarea =>{
         return tarea.id === id
        })
-       console.log();
+
         return tarea ? `\n\nInformacion de la Tarea:\n\n- ID: ${tarea.id}\n- Titulo: ${tarea.titulo}\n- Estado: ${tarea.estado}\n\n${this.horaTarea()}\n\n` : "\n\nAtención!: ¡No hay tareas para mostar con el ID: " + id + `!\n\n${this.horaTarea()}\n\n`
         
        },
@@ -77,32 +77,31 @@ const moduloTareas = {
         return `- ID: ${nuevaTarea.id}\n- Tarea: ${nuevaTarea.titulo}\n- Estado: pendiente\n\n${this.horaTarea()}\n\n`;
     },
     editarTarea : function(id,titulo){
-        
-        let validacion = !id ? `\n\nAtención!: ¡Debes ingresar un ID para editar la tarea!\n\n${this.horaTarea()}\n\n` : false
-        
-            if(validacion){
-                console.log(validacion);
-            return validacion;
-            }
-            
         let tareas = this.leerJSON();
-        
-        let tareasModificadas = tareas.map(tarea =>{
+            if(isNaN(id)){
+            return "\n\nAtención!: ¡Se debe ingresar un ID valido para editar!\n\n" + this.horaTarea() + "\n\n"
+            }
+            id = Math.floor(id);
+             let tareasModificadas = tareas.map(tarea =>{
             if(tarea.id === id){
                 let tareaModificada = {
                     id : tarea.id,
                     titulo : titulo ? titulo : tarea.titulo,
                     estado : tarea.estado
                 }
-                console.log("\n\nLa Tarea antes que se modifique es :\n\n"); 
-                console.log(`${tarea.id}- Titulo: ${tarea.titulo}\n   Estado: ${tarea.estado}\n\n¡Se modifico con Exito!\n\n`);
+                console.log("\n\nLa Tarea que se va a modificar:\n\n"); 
+                console.log(`${tarea.id}- Titulo: ${tarea.titulo}\n   Estado: ${tarea.estado}\n\n\n\n¡Se modifico con Exito!\n\n`);
                 return tareaModificada;
             }
             return tarea;
         })
         this.guardarJSON(tareasModificadas);
-        console.log(tareasModificadas);
-        console.log(`\n\n${this.horaTarea()}\n\n`);
+
+        const tarea = tareasModificadas.find(tarea =>{
+            return tarea.id === id
+           })
+    
+            return tarea ? `\nInformacion de la Tarea modificada:\n\n${tarea.id}- Titulo: ${tarea.titulo}\n   Estado: ${tarea.estado}\n\n${this.horaTarea()}\n\n` : "\n\nAtención!: ¡No hay tareas para editar con el ID: " + id + `!\n\n${this.horaTarea()}\n\n`
     },
     pendienteTarea : function(id){
         let validacion = !id ? `\nAtención!: ¡Debes ingresar el ID de la tarea que quieres pasar al estado: pendiente!\n\n${this.horaTarea()}\n\n` : false
@@ -148,7 +147,7 @@ const moduloTareas = {
                     titulo : tarea.titulo,
                     estado : "en progreso"
                 }
-                console.log("\n\nLa Tarea antes que se modifique es :\n\n"); 
+                console.log("\n\nLa Tarea que se va a modificar:\n\n"); 
                 console.log(`${tarea.id}- Titulo: ${tarea.titulo}\n   Estado: ${tarea.estado}\n\n¡Se modifico con Exito!\n\n`);
                 return tareaModificada;
             }
@@ -175,7 +174,7 @@ const moduloTareas = {
                     titulo : tarea.titulo,
                     estado : "terminada"
                 }
-                console.log("\n\nLa Tarea antes que se modifique es :\n\n"); 
+                console.log("\n\nLa Tarea que se va a modificar:\n\n"); 
                 console.log(`${tarea.id}- Titulo: ${tarea.titulo}\n   Estado: ${tarea.estado}\n\n¡Se modifico con Exito!\n\n`);
                 return tareaModificada;
             }

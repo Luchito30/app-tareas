@@ -23,7 +23,7 @@ switch (comando) {
     case "editar":
     id =  +process.argv[3];
     titulo = process.argv[4];
-    moduloTareas.editarTarea(id,titulo);
+    console.log(moduloTareas.editarTarea(id,titulo));
         break;
     case "pendiente":
     id = +process.argv[3];
@@ -62,7 +62,7 @@ switch (comando) {
         console.log(moduloTareas.buscarTarea(key));
         break;
     case undefined:
-    console.log("\n\nAtención! : ¡Tienes que pasar una acción!\n\n");
+    console.log("\n\nAtención! : ¡Tienes que pasar una Comando!\n\n");
     console.log(moduloTareas.horaTarea() + "\n\n");
         break;
     default:

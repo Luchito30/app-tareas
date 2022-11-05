@@ -2,7 +2,7 @@
   "listar": "node app listar",
   "tarea": "node app tarea a",
   "crear": "node app crear a",
-  "editar": "node app editar a",
+  "editar": "node app editar a b",
   "pendiente": "node app pendiente a",
   "enprogreso": "node app enprogreso a",
   "terminada": "node app terminada a", 
